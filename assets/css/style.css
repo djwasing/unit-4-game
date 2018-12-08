@@ -48,11 +48,18 @@
     background-color: blue;
     color: white;
     width: 50%;
-    margin-top:
+    margin-top: 55px;
 }
 
 #combatRow {
     max-width: 90%;
     margin: 20 auto;
     justify-content: space-evenly;
+}
+
+#header2 {
+    max-width: 90%;
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: underline;
 }
