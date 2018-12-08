@@ -24,7 +24,7 @@
 
 .card {
     width: 250px;
-    position: relative;
+    /* position: relative; */
 }
 
 #combatHeader {
