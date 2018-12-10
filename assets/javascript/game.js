@@ -8,7 +8,7 @@ $(document).ready(function () {
     var enemyHealth = 0;
     var yourDamage = 8;
     var enemyDamage = 0;
-    var randomDamage = [5, 10, 12];
+    var randomDamage = [5, 15, 20];
 
     //choose your fighter, then choose your enemy
     $(".card.fighter").on("click", function chooseFighter() {
@@ -22,6 +22,10 @@ $(document).ready(function () {
             .children(".card-body")
             .find("#health")
             .text();     //selects the health of the fighter you chose and assigns it to the fghterHealth var
+        $(this)
+            .children(".card-body")
+            .find("#health")
+            .addClass("yourHp");                         //locates the #health text of the card the user chose and adds the .yourHp class
         console.log("your health " + yourHealth);
         console.log("your damage " + yourDamage);
         $(".card").off("click", chooseFighter);           //stops the chooseFigher funtion
@@ -33,7 +37,14 @@ $(document).ready(function () {
         $(".enemy")                                     
             .not(this)
             .removeClass("enemy");                      //removes the enemy class from the remaining cards, but leaves it on this card
-        enemyHealth = $(this).children(".card-body").find("#health").text();        //selects the health of the fighter you chose and assigns it to the enemyHealth var
+        enemyHealth = $(this)
+            .children(".card-body")
+            .find("#health")
+            .text();                                    //selects the health of the fighter you chose and assigns it to the enemyHealth var
+        $(this)                         
+            .children(".card-body") 
+            .find("#health")
+            .addClass("enemyHp");                       //locates the #health text of the card the user chose and adds the .enemyHp class
         console.log("enemy health " + enemyHealth);
         enemyDamage = randomDamage[Math.floor(Math.random() * randomDamage.length)];        //randomly selects a damage for the enemy damage fromt he randomDamage array
         console.log("enemy damage " + enemyDamage);
@@ -51,19 +62,29 @@ $(document).ready(function () {
         
     
     $(".attackBtn").on("click", function battle() {
-        console.log("battle!!!");
+        //console.log("battle!!!");
         enemyHealth = enemyHealth - yourDamage;
-        $("#health").text(enemyHealth);
+        $(".enemyHp").text(enemyHealth);
         //console.log("enemy " + enemyHealth);
         yourHealth = yourHealth - enemyDamage;
+        $(".yourHp").text(yourHealth);
         //console.log("you " + yourHealth);
         yourDamage = yourDamage + 8;
         //console.log("your damage " + yourDamage);
-        
+        if (enemyHealth <= 0) {
+            alert("You won the duel! Choose a new enemy!");
+            $(".card.enemy").hide();
+            $(".card").addClass("enemy");
+        }
+        $(document).on("click", ".card.enemy", chooseEnemy);
 
         
-        
+
     });
+
+    
+
+      
 
     //enemyHealth - yourDamage = enemyHealth
     //yourHealth - enemyDamage = yourHealth
