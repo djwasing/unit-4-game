@@ -52,8 +52,21 @@
     margin-top: 55px;
 }
 
+.resetBtn {
+    background-color: blue;
+    color: white;
+    width: 50%;
+    margin-top: 55px;
+}
+
 .attackBtn:hover {
     background-color: red;
+    width: 60%;
+    font-size: 22px;
+}
+
+.resetBtn:hover {
+    background-color: green;
     width: 60%;
     font-size: 22px;
 }

@@ -8,7 +8,7 @@ $(document).ready(function () {
     var enemyHealth = 0;
     var yourDamage = 8;
     var enemyDamage = 0;
-    var randomDamage = [5, 15, 20];
+    var randomDamage = [10, 15, 20];
 
     //choose your fighter, then choose your enemy
     $(".card.fighter").on("click", function chooseFighter() {
@@ -78,8 +78,9 @@ $(document).ready(function () {
         }
         $(document).on("click", ".card.enemy", chooseEnemy);
 
-        
-
+        if (yourHealth <= 0) {
+            alert("You lost the battle! Hit RESET to play again!");
+        }
     });
 
     
