@@ -60,6 +60,10 @@
     margin-bottom: 20px;
 }
 
+#continue {
+    text-decoration: underline;
+}
+
 .attackBtn:hover {
     background-color: red;
     width: 60%;

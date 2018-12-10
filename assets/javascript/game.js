@@ -8,10 +8,11 @@ $(document).ready(function () {
     var enemyHealth = 0;
     var yourDamage = 0;
     var enemyDamage = 0;
-    var randomDamage = [10, 12, 15];
+    var randomDamage = [5, 8, 10, 12, 15];
     var wins = 0;
 
     $(".attackBtn").hide();
+    $("#continue").hide();
 
     //choose your fighter, then choose your enemy
     $(".card.fighter").on("click", function chooseFighter() {
@@ -56,6 +57,7 @@ $(document).ready(function () {
             $(document).off("click", ".card.enemy", chooseEnemy);
         }
         $(".attackBtn").show();
+        $("#continue").hide();
     }
     
     $(document).on("click", ".card.enemy", chooseEnemy);        //runs the chooseEnemy func on click following the chooseFighter func
@@ -86,6 +88,7 @@ $(document).ready(function () {
             $(".card.enemy").hide();
             $(".attackBtn").hide();
             $(".card").addClass("enemy");
+            $("#continue").show();
             wins = wins + 1;
         }
         
@@ -101,6 +104,7 @@ $(document).ready(function () {
         if (wins === 3) {
         alert("Congratulations! You won the battle! Press RESET to play again!");
         $(".attackBtn").hide();
+        $("#continue").hide();
         }
     }
     
@@ -113,4 +117,4 @@ $(document).ready(function () {
 
 //TO DO LIST::
 //1. check the health after each click of the attack button, not instantly when clicked
-//2. Only display "choose new enemy" alert if there are still enemies left to choose
+    //so the health of the hero changes, then the score is checked, so te hero doesnt have negative health and still able to fight. 
