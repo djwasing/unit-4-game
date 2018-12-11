@@ -20,11 +20,21 @@
     width: 200px; 
     margin: 0 auto;
     margin-top: 10px;
+    border: solid 3px black;
 }
 
 .card {
     width: 250px;
     /* position: relative; */
+}
+
+#card {
+    background-color: lightgray;
+    border: solid 3px black;
+}
+
+.card-body {
+    background-color: lightgray;
 }
 
 #combatHeader {

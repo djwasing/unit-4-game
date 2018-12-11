@@ -53,7 +53,7 @@ $(document).ready(function () {
             .children(".card-body") 
             .find("#health")
             .addClass("enemyHp");                       //locates the #health text of the card the user chose and adds the .enemyHp class
-        console.log("enemy health " + enemyHealth);
+        console.log("enemy health " + enemyHealth); 
         enemyDamage = randomDamage[Math.floor(Math.random() * randomDamage.length)];        //randomly selects a damage for the enemy damage from the randomDamage array
         console.log("enemy damage " + enemyDamage);
         $(document).off("click", ".card.enemy", chooseEnemy);       //stops the chooseEnemy func so the user can't keep picking enemys until current is defeated        
