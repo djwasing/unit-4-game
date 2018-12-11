@@ -15,7 +15,7 @@ $(document).ready(function () {
     var alertMessage = $("#message");
 
     $(".attackBtn").hide();
-    $("#continue").hide();
+    //$("#continue").hide();
 
 
     //choose your fighter, then choose your enemy
