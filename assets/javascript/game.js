@@ -8,11 +8,15 @@ $(document).ready(function () {
     var enemyHealth = 0;
     var yourDamage = 0;
     var enemyDamage = 0;
-    var randomDamage = [5, 8, 10, 12, 15];              //random damages the enemys can deal to the user card
+    var randomDamage = [5, 10, 15, 20];              //random damages the enemys can deal to the user card
     var wins = 0;
+    var alertDiv = $("#alert");
+    var alertTitle = $("#messageTitle");
+    var alertMessage = $("#message");
 
     $(".attackBtn").hide();
     $("#continue").hide();
+
 
     //choose your fighter, then choose your enemy
     $(".card.fighter").on("click", function chooseFighter() {
@@ -58,6 +62,7 @@ $(document).ready(function () {
         }
         $(".attackBtn").show();
         $("#continue").hide();
+        alertDiv.addClass("d-none");
     }
     
     $(document).on("click", ".card.enemy", chooseEnemy);        //runs the chooseEnemy func on click following the chooseFighter func
@@ -70,10 +75,14 @@ $(document).ready(function () {
     $(".attackBtn").on("click", function battle() {            //runs the battle func when the attackBtn is clicked
         //console.log("battle!!!");
         enemyHealth = enemyHealth - yourDamage;                 //subtracts the damage the user gives enemy from the enemyHealth and print it to the page
-        $(".enemyHp").text(enemyHealth);
+        if (enemyHealth >= 0) {
+            $(".enemyHp").text(enemyHealth);
+        }  
         //console.log("enemy " + enemyHealth);
         yourHealth = yourHealth - enemyDamage;              //subtract the damage the user receives from the enemy and prints it to the page
-        $(".yourHp").text(yourHealth);
+        if (yourHealth >= 0) {
+            $(".yourHp").text(yourHealth);
+        }
         //console.log("you " + yourHealth);
         yourDamage = yourDamage + 8;                        //adds 8 damage points to grow the user damage
         //console.log("your damage " + yourDamage);
@@ -83,34 +92,46 @@ $(document).ready(function () {
     });
 
     function checkHealth() {    
-        if (enemyHealth <= 0) {                     
-            alert("You won the duel!");
+        if (enemyHealth <= 0) {
+            alertDiv.removeClass("d-none alert-warning")
+                .addClass("alert-success show"); 
+            alertTitle.text("You won the duel!");
+            alertMessage.text("Choose a new enemy to continue");                                
             $(".card.enemy").hide();                        //once and enemy is defeated, their card disapears
             $(".attackBtn").hide();
             $(".card").addClass("enemy");                   //adds the enemy class to the remaining cards so they can be clicked
-            $("#continue").show();                          //shows a message requesting the user to select a new enemy
+            //$("#continue").show();                          //shows a message requesting the user to select a new enemy
             wins = wins + 1;                                //increases wins var by 1
         }
         
         $(document).on("click", ".card.enemy", chooseEnemy);        //runs the choose enemy func when enemy card is clicked. 
 
         if (yourHealth <= 0 && enemyHealth >= 0) {                          //if user health is under 0 and enemy still has health, game over
-            alert("You lost the battle! Hit RESET to play again!");         //prompt user to click resetBtn
+            //alert("You lost the battle! Hit RESET to play again!");         //prompt user to click resetBtn
+            alertDiv.removeClass("d-none alert-warning")
+                .addClass("alert-danger show");
+            alertTitle.text("You lost the battle!");
+            alertMessage.text("Hit RESET to play again!");
             $(".attackBtn").off("click");
             $(".attackBtn").hide();
             $(".card.fighter").hide();                                      //hide the user card
         }
     
         if (wins === 3) {                                                 //when user reaches 3 wins
-        alert("Congratulations! You won the battle! Press RESET to play again!");          //prompt user to hit resetBtn for new game 
-        $(".attackBtn").hide();
-        $("#continue").hide();
+        //alert("Congratulations! You won the battle! Press RESET to play again!");          //prompt user to hit resetBtn for new game 
+            alertDiv.removeClass("d-none alert-success alert-warning alert-danger")
+                .addClass("alert-primary show");
+            alertTitle.text("Congratulations! You won the battle!");
+            alertMessage.text("Press RESET to play again!");
+            $(".attackBtn").hide();
+            $("#continue").hide();
         }
     }
     
     
     $(".resetBtn").on("click", function reset() {               //when resetBtn clicked, game resets to default settings. 
         location.reload();
+        alertDiv.removeClass("alert-success alert-warning alert-danger alert-primary");
     });
 
 });
