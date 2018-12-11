@@ -8,7 +8,7 @@ $(document).ready(function () {
     var enemyHealth = 0;
     var yourDamage = 0;
     var enemyDamage = 0;
-    var randomDamage = [5, 10, 15, 20];              //random damages the enemys can deal to the user card
+    var randomDamage = [8, 10, 15, 18];              //random damages the enemys can deal to the user card
     var wins = 0;
     var alertDiv = $("#alert");
     var alertTitle = $("#messageTitle");
