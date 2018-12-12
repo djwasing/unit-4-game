@@ -8,7 +8,7 @@ $(document).ready(function () {
     var enemyHealth = 0;
     var yourDamage = 0;
     var enemyDamage = 0;
-    var randomDamage = [8, 10, 15, 18];              //random damages the enemys can deal to the user card
+    var randomDamage = [5, 8, 10, 15, 18];              //random damages the enemys can deal to the user card
     var wins = 0;
     var alertDiv = $("#alert");
     var alertTitle = $("#messageTitle");
@@ -121,7 +121,7 @@ $(document).ready(function () {
         //alert("Congratulations! You won the battle! Press RESET to play again!");          //prompt user to hit resetBtn for new game 
             alertDiv.removeClass("d-none alert-success alert-warning alert-danger")
                 .addClass("alert-primary show");
-            alertTitle.text("Congratulations! You won the battle!");
+            alertTitle.text("Congratulations! You won the battle! And saved Middle-Earth!");
             alertMessage.text("Press RESET to play again!");
             $(".attackBtn").hide();
             $("#continue").hide();
