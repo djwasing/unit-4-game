@@ -14,8 +14,8 @@
 
 <body>
     <div class="row" id="header">
-        <div class="col-md-12">
-            <h1>
+        <div class="col-md-12" id="top">
+            <h1 class="title" id="title">
                 Lord of the Rings RPG
             </h1>
         </div>
@@ -23,9 +23,9 @@
 
     <div class="row" id="fighterRow">
         <div class="container-fluid" id="header1">
-            <h3>
+            <h2>
                 Choose Your <span id="word">Fighter</span>
-            </h3>
+            </h2>
         </div>
         <div class="col-md-3 container-fluid">
             <div class="card fighter" id="card">
@@ -66,14 +66,14 @@
     </div>
     <div class="row" id="combatHeader">
         <div class="container-fluid" id="header1">
-            <h3>
+            <h2 id="combat">
                 Combat Zone
-            </h3>
+            </h2>
         </div>
     </div>
     <div class="row" id="combatRow">
         <div class="col-md-3" id="header2">
-            <h4 class="titles">
+            <h4 class="titles" id="titles">
                 Your Fighter
             </h4>
             <div class="container yourFighter">
@@ -92,12 +92,12 @@
             </div>
             <btn class="btn resetBtn">RESET</btn>
             <br>
-            <h5>You did <span id="heroDamage">___</span> damage</h5>
-            <h5>Enemy did <span id="villanDamage">___</span> damage</h5>
+            <h5 id="stats">You did  <span id="heroDamage">___</span>  damage</h5>
+            <h5 id="stats">Enemy did  <span id="villanDamage">___</span>  damage</h5>
             <!-- <h5><span id="continue">Choose enemy to continue!</span></h5> -->
         </div>
         <div class="col-md-3" id="header2">
-            <h4 class="titles">
+            <h4 class="titles" id="titles">
                 Enemy Fighter
             </h4>
             <div class="container enemyFighter">

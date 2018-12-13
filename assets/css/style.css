@@ -1,12 +1,41 @@
+body {
+    background-image: url("../../assets/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 #header {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 25px;
+}
+
+#title {
+    font-family: Papyrus, fantasy;
+    font-weight: bold;
+    font-size: 55px;
+    color: black;
+    text-shadow:
+        -1px -1px 0 orangered,
+        1px -1px 0 orangered,
+        -1px 1px 0 orangered,
+        1px 1px 0 yellow;
+    
 }
 
 #header1 {
     max-width: 90%;
     border-bottom: 3px solid black;
     margin-bottom: 10px;
+    font-family: Papyrus, fantasy;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    text-shadow:
+        -1px -1px 0 orangered,
+        1px -1px 0 orangered,
+        -1px 1px 0 orangered,
+        1px 1px 0 yellow;
 }
 
 #fighterRow {
@@ -41,6 +70,7 @@
     max-width: 90%;
     margin: 20 auto;
     justify-content: space-evenly;
+    
 }
 
 .card-title {
@@ -53,6 +83,10 @@
 
 #attackZone {
     text-align: center;
+    background-color: darkslategray;
+    border-radius: 8px;
+    border: solid 3px black;
+    padding-bottom: 20px;
 }
 
 .attackBtn {
@@ -84,6 +118,28 @@
     background-color: green;
     width: 60%;
     font-size: 22px;
+}
+
+#titles {
+    font-family: Papyrus, fantasy;
+    font-weight: bold;
+    color: black;
+    text-shadow:
+        -1px -1px 0 orangered,
+        1px -1px 0 orangered,
+        -1px 1px 0 orangered,
+        1px 1px 0 yellow;
+}
+
+#stats {
+    font-family: Papyrus, fantasy;
+    font-weight: bold;
+    color: black;
+    text-shadow:
+        -1px -1px 0 orangered,
+        1px -1px 0 orangered,
+        -1px 1px 0 orangered,
+        1px 1px 0 orangered;
 }
 
 #combatRow {
