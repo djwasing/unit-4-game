@@ -61,6 +61,8 @@ body {
 #card {
     background-color: lightgray;
     border: solid 3px black;
+    font-family: Papyrus, fantasy;
+    font-weight: bold;
 }
 
 .card-body {
