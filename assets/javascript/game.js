@@ -17,6 +17,15 @@ $(document).ready(function () {
     $(".attackBtn").hide();
     //$("#continue").hide();
 
+    $("#soundBtn").on("click", function() {       
+        $("#battleMusic")[0].play();
+        addClass("sound_on");
+    });
+
+        
+    
+    
+    
 
     //choose your fighter, then choose your enemy
     $(".card.fighter").on("click", function chooseFighter() {
